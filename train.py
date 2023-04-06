@@ -4,8 +4,12 @@ from sklearn.ensemble import RandomForestRegressor
 import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
+from pathlib import Path
+
 # Set random seed
 seed = 42
+results_dir = Path('results/metrics.txt')
+results_dir.parent.mkdir(exist_ok=True, parents=True)
 
 ################################
 ########## DATA PREP ###########
