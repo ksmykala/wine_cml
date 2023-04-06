@@ -31,7 +31,7 @@ jobs:
           cat results/metrics.txt >> report.md
 
           echo "## Data visulization" >> report.md
-          cml-publish feature_importance.png --md >> report.md
-          cml-publish residuals.png --md >> report.md
+          echo "![](results/feature_importance.png)" >> report.md
+          echo "![](results/residuals.png)" >> report.md
 
-          cml-send-comment report.md
+          cml comment create report.md
