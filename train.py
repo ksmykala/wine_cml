@@ -1,6 +1,7 @@
-import pandas as pd 
+import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestRegressor
+from sklearn.preprocessing import LabelEncoder
 import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
@@ -16,7 +17,14 @@ results_dir.parent.mkdir(exist_ok=True, parents=True)
 ################################
 
 # Load in the data
-df = pd.read_csv("wine_quality.csv")
+# df = pd.read_csv("wine_quality.csv")
+df = pd.read_csv("winequalityN.csv")
+df = df.dropna()
+
+le = LabelEncoder()
+df['type'] = le.fit_transform(df['type'])
+mapping = dict(zip(le.classes_, range(len(le.classes_))))
+
 
 # Split into train and test sections
 y = df.pop("quality")
@@ -27,7 +35,7 @@ X_train, X_test, y_train, y_test = train_test_split(df, y, test_size=0.2, random
 #################################
 
 # Fit a model on the train section
-regr = RandomForestRegressor(random_state=seed)
+regr = RandomForestRegressor(n_estimators=50, max_depth=10, random_state=seed)
 regr.fit(X_train, y_train)
 
 # Report training set score
@@ -39,6 +47,7 @@ test_score = regr.score(X_test, y_test) * 100
 with open("results/metrics.txt", 'w') as outfile:
         outfile.write("Training variance explained: %2.1f%%\n" % train_score)
         outfile.write("Test variance explained: %2.1f%%\n" % test_score)
+        outfile.write(f"Mapping type: {mapping}")
 
 
 ##########################################
@@ -69,8 +78,8 @@ plt.close()
 ############ PLOT RESIDUALS  #############
 ##########################################
 
-y_pred = regr.predict(X_test) + np.random.normal(0,0.25,len(y_test))
-y_jitter = y_test + np.random.normal(0,0.25,len(y_test))
+y_pred = regr.predict(X_test) + np.random.normal(0,0.05,len(y_test))
+y_jitter = y_test + np.random.normal(0,0.05,len(y_test))
 res_df = pd.DataFrame(list(zip(y_jitter,y_pred)), columns = ["true","pred"])
 
 ax = sns.scatterplot(x="true", y="pred",data=res_df)
