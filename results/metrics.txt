@@ -1,0 +1,3 @@
+Training variance explained: 71.6%
+Test variance explained: 41.1%
+Mapping type: {'red': 0, 'white': 1}
