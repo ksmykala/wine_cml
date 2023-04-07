@@ -1,5 +1,7 @@
 # Project
-results/*
+results/feature_importance.png
+results/metrics.txt
+results/residuals.png
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

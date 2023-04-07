@@ -1,0 +1,4 @@
+outs:
+- md5: 123157c633e9bb240bb5074000ff67c2
+  size: 102
+  path: metrics.txt
