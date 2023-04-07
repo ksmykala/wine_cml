@@ -35,7 +35,7 @@ X_train, X_test, y_train, y_test = train_test_split(df, y, test_size=0.2, random
 #################################
 
 # Fit a model on the train section
-regr = RandomForestRegressor(n_estimators=50, max_depth=9, random_state=seed)
+regr = RandomForestRegressor(n_estimators=50, max_depth=10, random_state=seed)
 regr.fit(X_train, y_train)
 
 # Report training set score
