@@ -1,7 +1,9 @@
 # Project
-results/feature_importance.png
-results/metrics.txt
-results/residuals.png
+results/*
+!results/feature_importance.png.dvc
+!results/metrics.txt.dvc
+!results/residuals.png.dvc
+!results/.gitignore
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
