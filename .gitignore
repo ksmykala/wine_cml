@@ -1,4 +1,6 @@
 # Project
+venv
+
 results/*
 !results/feature_importance.png.dvc
 !results/metrics.txt.dvc
@@ -6,6 +8,7 @@ results/*
 !results/.gitignore
 
 winequality.csv
+
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
