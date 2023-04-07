@@ -5,3 +5,4 @@ seaborn
 numpy
 wget
 dvc
+dvc-gdrive
