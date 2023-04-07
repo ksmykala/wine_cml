@@ -18,7 +18,7 @@ results_dir.parent.mkdir(exist_ok=True, parents=True)
 
 # Load in the data
 # df = pd.read_csv("wine_quality.csv")
-df = pd.read_csv("winequalityN.csv")
+df = pd.read_csv("data/winequalityN.csv")
 df = df.dropna()
 
 le = LabelEncoder()
