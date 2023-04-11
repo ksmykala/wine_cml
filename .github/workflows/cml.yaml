@@ -34,7 +34,7 @@ jobs:
 
           echo "## MODEL METRICS" > report.md
           # cat results/metrics.txt >> report.md
-          dvc metrics diff --all >> report.md
+          dvc metrics show --md >> report.md
 
           echo "## Data visulization" >> report.md
           echo "![](results/fi_and_residuals.png)" >> report.md
