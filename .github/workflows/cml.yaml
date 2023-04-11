@@ -33,7 +33,7 @@ jobs:
           git fetch --prune
 
           echo "## MODEL METRICS" > report.md
-          # cat results/metrics.txt >> report.md
+          cat results/metrics.txt >> report.md
           dvc metrics diff --all --md >> report.md
 
           echo "## Data visulization" >> report.md
