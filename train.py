@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
 from pathlib import Path
+import json
 
 # Set random seed
 seed = 22092020
@@ -50,7 +51,7 @@ metrics_scores = {
 
 # Write scores to a file
 with open("results/metrics.txt", 'w') as outfile:
-    outfile.write(metrics_scores)
+    outfile.write(json.dumps(metrics_scores))
 
 
 ##########################################
