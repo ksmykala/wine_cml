@@ -37,7 +37,6 @@ jobs:
           dvc metrics diff --all --md >> report.md
 
           echo "## Data visulization" >> report.md
-          echo "![](results/feature_importance.png)" >> report.md
-          echo "![](results/residuals.png)" >> report.md
+          echo "![](results/fi_and_residuals.png)" >> report.md
 
           cml comment create report.md

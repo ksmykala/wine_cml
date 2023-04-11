@@ -8,8 +8,7 @@ stages:
       - train.py
       - data/winequalityN.csv
     outs:
-      - results/feature_importance.png
-      - results/residuals.png
+      - results/fi_and_residuals.png
     metrics:
       - results/metrics.txt:
           cache: false
