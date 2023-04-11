@@ -1,0 +1,14 @@
+stages:
+  # To understand: why I cannot get data in pipeline?
+  # get_data:
+  #   cmd: dvc pull data/winequalityN.csv
+  train:
+    cmd: python train.py
+    deps:
+      - train.py
+      - data/winequalityN.csv
+    outs:
+      - results/fi_and_residuals.png
+    metrics:
+      - results/metrics.txt:
+          cache: false
