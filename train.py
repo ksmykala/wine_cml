@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
 from pathlib import Path
+import json
 
 # Set random seed
 seed = 22092020
@@ -43,11 +44,14 @@ train_score = regr.score(X_train, y_train) * 100
 # Report test set score
 test_score = regr.score(X_test, y_test) * 100
 
+metrics_scores = {
+    'train': round(train_score, 3),
+    'test': round(test_score, 3)
+}
+
 # Write scores to a file
 with open("results/metrics.txt", 'w') as outfile:
-        outfile.write("Training variance explained: %2.1f%%\n" % train_score)
-        outfile.write("Test variance explained: %2.1f%%\n" % test_score)
-        outfile.write(f"Mapping type: {mapping}")
+    outfile.write(json.dumps(metrics_scores))
 
 
 ##########################################
