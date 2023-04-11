@@ -1,0 +1,20 @@
+schema: '2.0'
+stages:
+  get_data:
+    cmd: dvc pull data/winequalityN.csv
+  train:
+    cmd: python train.py
+    deps:
+    - path: data/winequalityN.csv
+      md5: be27b6f214fffe4c84f60b2036c292a8
+      size: 390376
+    - path: train.py
+      md5: f2bb94b5b1781abb6ab7f3b18d8e012f
+      size: 3207
+    outs:
+    - path: results/fi_and_residuals.png
+      md5: c0c10fb969005ef4d1e572d1d026181a
+      size: 131895
+    - path: results/metrics.txt
+      md5: 17c754632115263401fe086b5262601e
+      size: 33
