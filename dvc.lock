@@ -13,8 +13,8 @@ stages:
       size: 3207
     outs:
     - path: results/fi_and_residuals.png
-      md5: 0e7ae386449b4cd5b2e9255b0187d311
-      size: 131735
+      md5: 0f8b3f756b37c48ef18a3d6ecfd23983
+      size: 128021
     - path: results/metrics.txt
       md5: a2de8d1f95c777679a91593cb1bed8e5
       size: 33
