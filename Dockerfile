@@ -8,5 +8,14 @@ RUN apt-get update;\
     python3.8 get-pip.py && \
     rm get-pip.py
 
+COPY requirements.txt .
+
+RUN pip install --no-cache-dir -r requirements.txt
+
 # docker build -t gpurunner .
 # docker run --name gpurunner -d --gpus all -e RUNNER_IDLE_TIEMOUT=1000 -e RUNNER_LABELS=cml,gpu -e RUNNER_REPO="https://github.com/ksmykala/wine_cml" -e repo_token=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 gpurunner
+
+
+# docker stop gpurunner
+# docker container rm gpurunner
+# docker image rm gpurunner
