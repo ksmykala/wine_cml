@@ -9,12 +9,12 @@ stages:
       md5: be27b6f214fffe4c84f60b2036c292a8
       size: 390376
     - path: train.py
-      md5: f2bb94b5b1781abb6ab7f3b18d8e012f
+      md5: 582d293dc6b99841e324a6ce37f298d2
       size: 3207
     outs:
     - path: results/fi_and_residuals.png
-      md5: c0c10fb969005ef4d1e572d1d026181a
-      size: 131895
+      md5: 0f8b3f756b37c48ef18a3d6ecfd23983
+      size: 128021
     - path: results/metrics.txt
-      md5: 17c754632115263401fe086b5262601e
+      md5: a2de8d1f95c777679a91593cb1bed8e5
       size: 33

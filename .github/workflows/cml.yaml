@@ -2,7 +2,7 @@ name: wine-model-quality
 on: [push]
 jobs:
   run:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted,cml,gpu]
     # optionally use a convenient Ubuntu LTS + DVC + CML image
     # container: ghcr.io/iterative/cml:0-dvc2-base1
     steps:
@@ -34,7 +34,13 @@ jobs:
 
           echo "## MODEL METRICS" > report.md
           # cat results/metrics.txt >> report.md
-          dvc metrics diff --all --md >> report.md
+          dvc metrics show --md >> report.md
+
+          echo "## AVAILABLE GPU [SELF-HOSTED]" > report.md
+          CODEBLOCK="\`\`\`"
+          echo $CODEBLOCK >> report.md
+          nvidia-smi >> report.md
+          echo $CODEBLOCK >> report.md
 
           echo "## Data visulization" >> report.md
           echo "![](results/fi_and_residuals.png)" >> report.md
